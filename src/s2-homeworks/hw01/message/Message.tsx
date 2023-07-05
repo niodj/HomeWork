@@ -10,7 +10,7 @@ export type MessagePropsType = {
 
 // нужно отобразить приходящие данные
 const Message = (props: MessagePropsType) => {
-    console.log(props)
+
     return (
         <div className ={s.wrapper}>
 
