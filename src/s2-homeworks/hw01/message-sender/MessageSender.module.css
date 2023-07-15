@@ -1,19 +1,13 @@
 .sendForm {
-display: flex;
-    justify-content: center;
-    margin-right: 8px;
-    padding-bottom: 100px;
-    padding-top: 50px;
+
 }
 
 .textarea {
-margin-right: 30px;
-    width: 60%;
-    height: 200px;
+
 }
 
 .button {
-    margin-right: 40px
+
 }
 
 .button:hover {
