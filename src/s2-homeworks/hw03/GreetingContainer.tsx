@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {ChangeEvent, useState} from 'react'
 import Greeting from './Greeting'
 
 type GreetingContainerPropsType = {
@@ -37,10 +37,10 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
                                                                      addUserCallback,
                                                                  }) => {
     // деструктуризация пропсов
-    const [name, setName] = useState<string>("    ") // need to fix any
+    const [name, setName] = useState<string>("") // need to fix any
     const [error, setError] = useState<string>('') // need to fix any
 
-    const setNameCallback = (e: any) => {
+    const setNameCallback = (e:ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value)
 
         error && setError('')
@@ -53,7 +53,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
         pureOnBlur(name, setError)
     }
 
-    const onEnter = (e: any) => {
+    const onEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
         console.log(e)
         pureOnEnter(e, addUser)
 
