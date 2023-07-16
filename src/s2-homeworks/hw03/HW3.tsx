@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { v1 } from 'uuid'
+import React, {useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import GreetingContainer from './GreetingContainer'
+import {v1} from "uuid";
 
 /*
 * 1 - описать тип UserType*
@@ -19,16 +19,15 @@ import GreetingContainer from './GreetingContainer'
 
 // types
 export type UserType = {
-    _id: number // need to fix any
+    _id: string // need to fix any
     name: string // need to fix any
 }
 
 export const pureAddUserCallback = (name: string, setUsers: any, users: any) => { // need to fix any
-    const user = { // need to fix
 
-
-    }
-    setUsers([...users, user])
+    setUsers([...users,{_id:v1(),name}])
+    console.log(users)
+    console.log(v1())
 }
 
 const HW3 = () => {
