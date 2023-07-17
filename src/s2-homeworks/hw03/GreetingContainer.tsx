@@ -1,12 +1,13 @@
-import React, {ChangeEvent, useState} from 'react'
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
 import Greeting from './Greeting'
+import {UserType} from "./HW3";
 
 type GreetingContainerPropsType = {
-    users: any // need to fix any
-    addUserCallback: any // need to fix any
+    users: UserType[] // need to fix any
+    addUserCallback: (name: string) => void // need to fix any
 }
 
-export const pureAddUser = (name: any, setError: any, setName: any, addUserCallback: any) => {
+export const pureAddUser = (name: string, setError: (error: string) => void, setName: (name: string) => void, addUserCallback: (name: string) => void) => {
     // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
     if (!name.trim()) {
         return setError('Ошибка! Введите имя!')
@@ -16,17 +17,18 @@ export const pureAddUser = (name: any, setError: any, setName: any, addUserCallb
 }
 
 
-export const pureOnBlur = (name: any, setError: any) => { // если имя пустое - показать ошибку
+export const pureOnBlur = (name: string, setError: (error: string) => void) => { // если имя пустое - показать ошибку
     if (!name.trim()) {
         return setError('Ошибка! Введите имя!')
     }
 
 }
 
-export const pureOnEnter = (e: any, addUser: any) => { // если нажата кнопка Enter - добавить
-    if (e.key === 'Enter'){addUser(e.target.value)}
-
-}
+export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: (name: string) => void) => {
+    if (e.key === 'Enter') {
+        addUser(e.currentTarget.value);
+    }
+};
 
 // более простой и понятный для новичков
 // function GreetingContainer(props: GreetingPropsType) {
@@ -40,11 +42,10 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     const [name, setName] = useState<string>("") // need to fix any
     const [error, setError] = useState<string>('') // need to fix any
 
-    const setNameCallback = (e:ChangeEvent<HTMLInputElement>) => {
-        setName(e.target.value)
-
-        error && setError('')
-    }
+    const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
+        setName(e.target.value);
+        error && setError('');
+    };
     const addUser = () => {
         pureAddUser(name, setError, setName, addUserCallback)
     }
@@ -54,10 +55,12 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
 
     const onEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        console.log(e)
-        pureOnEnter(e, addUser)
-
-    }
+        if (e.key === 'Enter' && name) {
+            pureOnEnter(e, addUser);
+        } else {
+            setName('')
+        }
+    };
 
     const totalUsers = users.length
     const lastUserName = users[users.length - 1]?.name
