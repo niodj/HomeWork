@@ -8,16 +8,23 @@
 }
 
 .nav {
+
 }
 
 .nav a {
+
 }
 
 .nav a:hover {
+
 }
 
 .nav a.active {
+    background-color: greenyellow;
+    margin: 10px;
+    border: solid;
 }
+
 .close {
 }
 

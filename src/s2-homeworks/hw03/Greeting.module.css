@@ -1,42 +1,22 @@
 .greetingForm {
-    display: flex;
-    align-items: flex-start;
 }
 
 .inputAndButtonContainer {
 }
 
 .error {
-    color: red;
-    height: 21px;
-    margin-left: 10px ;
 }
 
 .input {
-    margin: 10px;
-    background: green;
-    color: yellow;
 }
 
 .input:focus {
-    outline: none;
-    border: blue solid 2px;
 }
 
 .errorInput {
-    margin: 10px;
-    background: brown;
-    color: greenyellow;
-    border: 2px solid red;
 }
 
 .button {
-    margin: 10px;
-    width: 60px;
-    background: #0066cc;
-    color: #00cc22;
-    outline: none;
-
 }
 
 .button:focus {
