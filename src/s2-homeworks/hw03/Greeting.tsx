@@ -39,7 +39,7 @@ const Greeting: React.FC<GreetingPropsType> = (
             <div className={s.inputAndButtonContainer}>
                 <div>
                     <input
-                        id={'hw3-input'}
+                        id={error?'hw3-error':'hw3-input'}
                         value={name}
                         onChange={setNameCallback}
                         className={inputClass}
