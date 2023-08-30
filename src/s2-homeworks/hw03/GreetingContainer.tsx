@@ -11,6 +11,7 @@ export const pureAddUser = (name: string, setError: (error: string) => void, set
     if (name.trim()) {
         addUserCallback(name)
         setName('')
+        setError('')
     } else {
         setError('Ошибка! Введите имя!')
     }
