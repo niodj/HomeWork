@@ -39,14 +39,14 @@ const Greeting: React.FC<GreetingPropsType> = (
             <div className={s.inputAndButtonContainer}>
                 <div>
                     <input
-                        id={error?'hw3-error':'hw3-input'}
+                        id={'hw3-input'}
                         value={name}
                         onChange={setNameCallback}
                         className={inputClass}
                         onKeyDown={onEnter}
                         onBlur={onBlur}
                     />
-                    <div id={'hw3-error'} className={s.error}>
+                    <div id={'hw3-error'} className={error&& s.error}>
                         {error}
                     </div>
                 </div>
