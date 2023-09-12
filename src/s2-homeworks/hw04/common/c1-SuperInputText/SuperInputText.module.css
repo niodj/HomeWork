@@ -11,10 +11,12 @@
 }
 
 .errorInput {
+    border: #cc0000 solid;
 }
 
 .errorInput:focus {
 }
 
 .error {
+
 }
