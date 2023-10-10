@@ -1,22 +1,26 @@
 .input:focus {
+
 }
 
 .input {
+
 }
 
 .inputWrapper {
+
 }
 
 .superInput {
+
 }
 
 .errorInput {
-    border: #cc0000 solid;
+    border: solid red;
 }
 
 .errorInput:focus {
 }
 
 .error {
-
+color: red;
 }
