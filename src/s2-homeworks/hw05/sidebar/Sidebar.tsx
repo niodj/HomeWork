@@ -8,16 +8,14 @@ type PropsType = {
     open: boolean
     handleClose: () => void
 }
-
 export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
-
     const sidebarClass = s.sidebar
         + (open ? ' ' + s.open : '')
     return (
       <>
         {/*затемнение справа от открытого меню*/}
         {open && <div className={s.background} onClick={handleClose} />}
-
+        
         <aside className={sidebarClass}>
                 <div className={s.closeBtn}>
             <button className={s.close} onClick={handleClose}>
