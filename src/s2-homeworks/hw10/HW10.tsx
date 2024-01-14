@@ -14,13 +14,14 @@ import {Loader} from './Loader'
 * */
 
 const HW10 = () => {
-    // useSelector, useDispatch // пишет студент
-    const isLoading = false
+
+    const dispatch = useDispatch()
+    const isLoading = useSelector((store: any) => store.loading.isLoading);
 
     const setLoading = () => { // пишет студент // показать крутилку на 1,5 секунд
-        // dispatch
+        dispatch({ type: "CHANGE_LOADING" });
+        setTimeout(() => dispatch({ type: "CHANGE_LOADING" }), 1500);
 
-        // setTimeout
     }
 
     return (
